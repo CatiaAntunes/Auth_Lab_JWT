@@ -1,0 +1,5 @@
+FROM mysql:5.7-debian
+WORKDIR /app
+RUN pwd && echo ""
+RUN ls -lisa && echo ""
+RUN ./setup.sh

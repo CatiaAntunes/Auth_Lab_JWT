@@ -1,6 +1,6 @@
 import { LifeCycleObserver } from '@loopback/core';
 import { juggler } from '@loopback/repository';
-export declare class MysqlDataSource extends juggler.DataSource implements LifeCycleObserver {
+export declare class MysqlDatasource extends juggler.DataSource implements LifeCycleObserver {
     static dataSourceName: string;
     static readonly defaultConfig: {
         name: string;

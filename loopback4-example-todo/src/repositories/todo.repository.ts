@@ -1,6 +1,6 @@
 import {inject} from '@loopback/core';
 import {DefaultCrudRepository} from '@loopback/repository';
-import {MysqlDataSource} from '../datasources';
+import { MysqlDatasource } from '../datasources/mysql.datasource';
 import {Todo, TodoRelations} from '../models';
 
 export class TodoRepository extends DefaultCrudRepository<
@@ -9,7 +9,7 @@ export class TodoRepository extends DefaultCrudRepository<
   TodoRelations
 > {
   constructor(
-    @inject('datasources.mysql') dataSource: MysqlDataSource,
+    @inject('datasources.db') dataSource: MysqlDatasource,
   ) {
     super(Todo, dataSource);
   }

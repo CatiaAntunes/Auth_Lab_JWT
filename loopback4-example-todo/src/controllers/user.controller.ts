@@ -13,7 +13,10 @@ import {
   UserServiceBindings,
 } from '@loopback/authentication-jwt';
 import {inject} from '@loopback/core';
-import {model, property, repository} from '@loopback/repository';
+import {
+  //model, 
+  //property, 
+  repository} from '@loopback/repository';
 import {
   get,
   getModelSchemaRef,
@@ -24,15 +27,16 @@ import {
 import {SecurityBindings, securityId, UserProfile} from '@loopback/security';
 import {genSalt, hash} from 'bcryptjs';
 import _ from 'lodash';
+import { NewUserRequest } from '../models/user.model';
 
-@model()
-export class NewUserRequest extends User {
-  @property({
-    type: 'string',
-    required: true,
-  })
-  password: string;
-}
+// @model()
+// export class NewUserRequest extends User {
+//   @property({
+//     type: 'string',
+//     required: true,
+//   })
+//   password: string;
+// }
 
 const CredentialsSchema: SchemaObject = {
   type: 'object',

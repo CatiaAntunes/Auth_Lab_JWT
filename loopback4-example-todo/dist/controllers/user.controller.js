@@ -4,7 +4,7 @@
 // This file is licensed under the MIT License.
 // License text available at https://opensource.org/licenses/MIT
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserController = exports.CredentialsRequestBody = exports.NewUserRequest = void 0;
+exports.UserController = exports.CredentialsRequestBody = void 0;
 const tslib_1 = require("tslib");
 const authentication_1 = require("@loopback/authentication");
 const authentication_jwt_1 = require("@loopback/authentication-jwt");
@@ -14,19 +14,15 @@ const rest_1 = require("@loopback/rest");
 const security_1 = require("@loopback/security");
 const bcryptjs_1 = require("bcryptjs");
 const lodash_1 = tslib_1.__importDefault(require("lodash"));
-let NewUserRequest = class NewUserRequest extends authentication_jwt_1.User {
-};
-tslib_1.__decorate([
-    (0, repository_1.property)({
-        type: 'string',
-        required: true,
-    }),
-    tslib_1.__metadata("design:type", String)
-], NewUserRequest.prototype, "password", void 0);
-NewUserRequest = tslib_1.__decorate([
-    (0, repository_1.model)()
-], NewUserRequest);
-exports.NewUserRequest = NewUserRequest;
+const user_model_1 = require("../models/user.model");
+// @model()
+// export class NewUserRequest extends User {
+//   @property({
+//     type: 'string',
+//     required: true,
+//   })
+//   password: string;
+// }
 const CredentialsSchema = {
     type: 'object',
     required: ['email', 'password'],
@@ -138,14 +134,14 @@ tslib_1.__decorate([
     tslib_1.__param(0, (0, rest_1.requestBody)({
         content: {
             'application/json': {
-                schema: (0, rest_1.getModelSchemaRef)(NewUserRequest, {
+                schema: (0, rest_1.getModelSchemaRef)(user_model_1.NewUserRequest, {
                     title: 'NewUser',
                 }),
             },
         },
     })),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [NewUserRequest]),
+    tslib_1.__metadata("design:paramtypes", [user_model_1.NewUserRequest]),
     tslib_1.__metadata("design:returntype", Promise)
 ], UserController.prototype, "signUp", null);
 UserController = tslib_1.__decorate([

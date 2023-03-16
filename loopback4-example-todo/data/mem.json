@@ -1,0 +1,14 @@
+{
+  "ids": {
+    "User": 4,
+    "UserCredentials": 2
+  },
+  "models": {
+    "User": {
+      "9e1c4957-bc2b-4af5-87e6-aaef7125cd91": "{\"id\":\"9e1c4957-bc2b-4af5-87e6-aaef7125cd91\",\"email\":\"testuser2@abc.com\"}"
+    },
+    "UserCredentials": {
+      "8cad96e6-6066-40df-bfa8-8b754c7d8468": "{\"id\":\"8cad96e6-6066-40df-bfa8-8b754c7d8468\",\"password\":\"$2a$10$hWHU0pSpwsiFEHrQNwcGnu2t8Fzic6nKEyDtONYNEzawDEwRii6WK\",\"userId\":\"9e1c4957-bc2b-4af5-87e6-aaef7125cd91\"}"
+    }
+  }
+}

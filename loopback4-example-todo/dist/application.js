@@ -17,6 +17,7 @@ const sequence_1 = require("./sequence");
 const authentication_1 = require("@loopback/authentication");
 const authentication_jwt_1 = require("@loopback/authentication-jwt");
 const datasources_1 = require("./datasources");
+const mysql_datasource_1 = require("./datasources/mysql.datasource");
 class TodoListApplication extends (0, boot_1.BootMixin)((0, service_proxy_1.ServiceMixin)((0, repository_1.RepositoryMixin)(rest_1.RestApplication))) {
     constructor(options = {}) {
         super(options);
@@ -39,9 +40,16 @@ class TodoListApplication extends (0, boot_1.BootMixin)((0, service_proxy_1.Serv
                 nested: true,
             },
         };
+        //...
+        // ------ ADD SNIPPET AT THE BOTTOM ---------
+        // Mount authentication system
         this.component(authentication_1.AuthenticationComponent);
+        // Mount jwt component
         this.component(authentication_jwt_1.JWTAuthenticationComponent);
+        // Bind datasource
         this.dataSource(datasources_1.DbDataSource, authentication_jwt_1.UserServiceBindings.DATASOURCE_NAME);
+        this.dataSource(mysql_datasource_1.MysqlDatasource, 'mysql');
+        // ------------- END OF SNIPPET -------------
         this.setupLogging();
     }
     setupLogging() {

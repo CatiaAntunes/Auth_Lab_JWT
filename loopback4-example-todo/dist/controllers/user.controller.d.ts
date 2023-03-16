@@ -2,9 +2,7 @@ import { TokenService } from '@loopback/authentication';
 import { Credentials, MyUserService, User, UserRepository } from '@loopback/authentication-jwt';
 import { SchemaObject } from '@loopback/rest';
 import { UserProfile } from '@loopback/security';
-export declare class NewUserRequest extends User {
-    password: string;
-}
+import { NewUserRequest } from '../models/user.model';
 export declare const CredentialsRequestBody: {
     description: string;
     required: boolean;
