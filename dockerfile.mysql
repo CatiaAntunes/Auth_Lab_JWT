@@ -1,4 +1,4 @@
-FROM mysql:8.0
+FROM mysql:5.7-debian
 WORKDIR /app
 COPY db/setup.sh .
 COPY db/database_v1.sql .
