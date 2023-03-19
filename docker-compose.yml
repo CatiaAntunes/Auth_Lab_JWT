@@ -1,26 +1,15 @@
 version: '3'
 services:
-  mysql:
-    image: mysql:8.0
-    build:
-      context: .
-      dockerfile: /dockerfile.mysql
-    command: --default-authentication-plugin=mysql_native_password
+  lb4:
+    build: ./loopback4-example-todo
+    ports:
+      - 3000:3000
+    links:
+      - db
+  db:
+    image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: todos
     ports:
       - 3306:3306
-    networks:
-      - auth_lab_network
-  lb4:
-    build: ./loopback4-example-todo
-    ports:
-      - 3000:3000
-    depends_on:
-      - mysql
-    networks:
-      - auth_lab_network
-
-networks:
-  auth_lab_network:
